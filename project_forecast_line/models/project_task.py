@@ -164,7 +164,7 @@ class ProjectTask(models.Model):
             if not task._should_have_forecast():
                 task_with_lines_to_clean.append(task.id)
                 continue
-            forecast_type = self.set_forecast_type()
+            forecast_type = task.set_forecast_type()
             if not forecast_type:
                 continue
             date_start = max(today, task.forecast_date_planned_start)
@@ -239,7 +239,7 @@ class ProjectTask(models.Model):
         if force_company_id:
             companies = self.env["res.company"].browse(force_company_id)
         else:
-            companies = self.env["res.company"].search([])
+            companies = self.env["res.company"].search([])  # pylint: disable=no-search-all
         for company in companies:
             to_update = self.with_company(company).search(
                 [

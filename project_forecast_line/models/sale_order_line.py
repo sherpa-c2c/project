@@ -68,7 +68,7 @@ class SaleOrderLine(models.Model):
         if force_company_id:
             companies = self.env["res.company"].browse(force_company_id)
         else:
-            companies = self.env["res.company"].search([])
+            companies = self.env["res.company"].search([])  # pylint: disable=no-search-all
         for company in companies:
             to_update = self.with_company(company).search(
                 [
@@ -130,7 +130,7 @@ class SaleOrderLine(models.Model):
             project.tasks.write(
                 {
                     "forecast_role_id": self.product_id.forecast_role_id.id,
-                    "date_end": self.forecast_date_end,
+                    "forecast_date_planned_end": self.forecast_date_end,
                     "forecast_date_planned_start": self.forecast_date_start,
                 }
             )
