@@ -37,15 +37,4 @@
         <field name="sequence">1</field>
         <field name="view_id" ref="project.project_list_view_group_stage" />
     </record>
-    <record id="project.open_view_project_all" model="ir.actions.act_window">
-        <field name="view_mode">list,kanban,form</field>
-        <field name="context">{}</field>
-    </record>
-    <record
-        id="project.open_view_project_all_group_stage"
-        model="ir.actions.act_window"
-    >
-        <field name="view_mode">list,kanban,form</field>
-        <field name="context">{}</field>
-    </record>
 </odoo>
