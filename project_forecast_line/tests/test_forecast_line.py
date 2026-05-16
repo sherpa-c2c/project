@@ -569,7 +569,7 @@ class TestForecastRoleTimesheet(BaseForecastRoleTest):
                     line.product_uom_qty = (
                         45 * 2
                     )  # 45 working days in the period, sell 2 FTE
-                    line.product_uom = self.env.ref("uom.product_uom_day")
+                    line.product_uom_id = self.env.ref("uom.product_uom_day")
             so = form.save()
             so.action_confirm()
 

@@ -22,7 +22,7 @@ class TestForecastRoleSales(BaseForecastRoleTest):
             with form.order_line.new() as line:
                 line.product_id = self.product_dev_tm
                 line.product_uom_qty = uom_qty  # 1 FTE sold
-                line.product_uom = self.env.ref("uom.product_uom_day")
+                line.product_uom_id = self.env.ref("uom.product_uom_day")
         so = form.save()
         self.env.flush_all()
         return so
@@ -220,7 +220,7 @@ class TestForecastRoleSales(BaseForecastRoleTest):
             with form.order_line.new() as line:
                 line.product_id = product
                 line.product_uom_qty = 10
-                line.product_uom = self.env.ref("uom.product_uom_hour")
+                line.product_uom_id = self.env.ref("uom.product_uom_hour")
         so = form.save()
         so.action_confirm()
         self.env.flush_all()
@@ -284,7 +284,7 @@ class TestForecastRoleSales(BaseForecastRoleTest):
             with form.order_line.new() as line:
                 line.product_id = product_no_role
                 line.product_uom_qty = 10
-                line.product_uom = self.env.ref("uom.product_uom_hour")
+                line.product_uom_id = self.env.ref("uom.product_uom_hour")
         so = form.save()
         so.action_confirm()
         self.env.flush_all()
